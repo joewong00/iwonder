@@ -1,0 +1,98 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// @import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+// @import "../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+// @import "../node_modules/bootstrap/scss/maps";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+// @import "../node_modules/bootstrap/scss/utilities";
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/containers";
+// @import "../node_modules/bootstrap/scss/grid";
+// @import "../node_modules/bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// @import "../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+@charset "utf-8";
+
+// Define defaults for each variable.
+
+$base-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     30px !default;
+
+$text-color:       #111 !default;
+$background-color: #fdfdfd !default;
+$brand-color:      #2a7ae2 !default;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+$table-text-align: left !default;
+
+// Width of the content area
+$content-width:    900px !default;
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@import "header", "footer";
+
+/**
+ * Links
+ */
+ a {
+  color: black;
+  text-decoration: none !important;
+
+  .username{
+    color: $grey-color;
+  }
+
+  &:visited {
+    color: darken(black, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    // text-decoration: underline;
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: none;
+    }
+  }
+}
