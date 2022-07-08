@@ -4,7 +4,7 @@
 
     <nav class="nav nav-pills nav-fill">
       <a class="footer-heading" href="{{ "/" | relative_url }}">
-        <logo><img src="{{site.baseurl}}/assets/iwonder-logo.png" alt="LOGO" height="40px"></logo>{{site.title | escape }}
+        <logo><img src="{{site.baseurl}}/assets/iwonder-logo.png" alt="LOGO" height="30px"></logo>{{site.title | escape }}
       </a>
       <a class="nav-item">
         {%- for path in page_paths -%}
@@ -18,29 +18,30 @@
       </a>
     </nav>
 
-    <hr style="opacity:0.3;	color:gray; margin-top: 5px; margin-bottom: 25px;">
+    <hr style="opacity:0.3;	color:gray; margin-top: 0px; margin-bottom: 10px; padding: -1px;">
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-          <ul class="contact-list">
-              {% comment %} <li class="p-name">
-                {%- if site.author -%}
-                {{ site.author | escape }}
-                {%- else -%}
-                {{ site.title | escape }}
-                {%- endif -%}
-              </li>
-              {%- if site.email -%}
-                <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-              {%- endif -%} {% endcomment %}
-              {%- include social.html -%}
-          </ul>
+    <div class="row justify-content-between">
+      <div class="col-md-4">
+        <ul class="contact-list">
+          {% comment %} <li class="p-name">
+            {%- if site.author -%}
+            {{ site.author | escape }}
+            {%- else -%}
+            {{ site.title | escape }}
+            {%- endif -%}
+          </li>
+          {%- if site.email -%}
+            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {%- endif -%} {% endcomment %}
+          {%- include social.html -%}
+      </ul>
       </div>
-
-      <div class="footer-col footer-col-2"></div>
-
-      <div class="footer-col footer-col-3">
-          <p>{{- site.description | escape -}}</p>
+      <div class="col-md-6" style="color:gray">
+        {{- site.description | escape -}}
       </div>
+    </div>
+
+
   </div>
+  
 </footer>

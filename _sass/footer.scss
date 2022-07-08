@@ -1,38 +1,28 @@
 .site-footer { 
-    border-top: 1px solid #e8e8e8; 
-    padding: 30px 0; 
+  border-top: 1px solid #e8e8e8; 
+  padding: 10px 0px;
+  font-family: $base-font-family;
 
-    .footer-heading{
-        @include relative-font-size(1.125);
-        margin-bottom: $spacing-unit / 2;
-        color: $grey-color;
+  .footer-heading{
+      @include relative-font-size(1.125);
+      margin-bottom: $spacing-unit / 2;
+      color: $grey-color;
+      padding-top: 8px;
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .container{
+      padding: 10px 3em;
     }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .nav-link {
+        display: none;
+    }
+  }
 }
 
-.contact-list, .social-media-list { list-style: none; margin-left: 0; }
-
-.footer-col-wrapper { font-size: 15px; color: #828282; margin-left: -15px; }
-
-.footer-col { float: left; margin-bottom: 15px; padding-left: 15px; }
-
-.footer-col-1 { width: -webkit-calc(35% - (30px / 2)); width: calc(35% - (30px / 2)); }
-
-.footer-col-2 { width: -webkit-calc(20% - (30px / 2)); width: calc(20% - (30px / 2)); }
-
-.footer-col-3 { width: -webkit-calc(45% - (30px / 2)); width: calc(45% - (30px / 2)); }
-
-@media screen and (max-width: 800px) { .footer-col-1, .footer-col-2 { width: -webkit-calc(50% - (30px / 2)); width: calc(50% - (30px / 2)); } .footer-col-3 { width: -webkit-calc(100% - (30px / 2)); width: calc(100% - (30px / 2)); } }
-
-@media screen and (max-width: 600px) { .footer-col { float: none; width: -webkit-calc(100% - (30px / 2)); width: calc(100% - (30px / 2)); } }
-
-.svg-icon {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    fill: #828282;
-    padding-right: 5px;
-    vertical-align: text-top;
-}
 
 .nav .nav-link {
     color: $grey-color !important;
@@ -42,9 +32,21 @@
     }
   }
 
-  .username{
-    &:hover {
-      color: white;
-      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-    }
+.username{
+  &:hover {
+    color: white;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
   }
+}
+
+.svg-icon{
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: #{$grey-color};
+  margin-right: 5px;
+  padding-left: -15px;
+  margin-left: -1.5cm;
+  vertical-align: text-top;
+}
+
