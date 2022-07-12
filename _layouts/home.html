@@ -1,37 +1,66 @@
 ---
 layout: default
 ---
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+<div class="main pt-4">
 
-<div class="home">
-  <!-- {%- if page.title -%}
+  <div class="container">
+
+    {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+    {%- endif -%}
 
-  {{ content }}
+    {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <hr>
-        <img src="{{- post.image | relative_url -}}" alt="" class="blog-roll-image">
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+    {%- if site.posts.size > 0 -%}
 
-  {%- endif -%} -->
+      <div class="row" data-masonry='{"percentPosition": true }'>
 
-   
+        {%- for post in site.posts -%}
+          <div class="col-lg-4 col-md-6">
+            <article class="card mb-4">
+              <header class="card-header">
+                <div class="card-meta">
+                  <!-- <a href="#"><time class="timeago" datetime="2021-09-26 20:00" timeago-id="1">9 months ago</time></a> in <a href="page-category.html">Journey</a> -->
+                  <time class="timeago">{{ post.date | date: date_format }}</time>
+                </div>
+                <a href="{{ post.url | relative_url }}">
+                  <h4 class="card-title">{{ post.title | escape }}</h4>
+                </a>
+              </header>
+              <a href="{{ post.url | relative_url }}">
+                <img class="card-img" style="border-radius: 0;" src="{{- post.image | relative_url -}}" alt="">
+                <!-- <div class="overlay">{{ post.title | escape }}</div> -->
+              </a>
+              <div class="card-body">
+                <p class="card-text">{{ post.excerpt }}</p>
+              </div>
+            </article>
+          </div>
+        {%- endfor -%}
+      </div>
 
+      <!-- <ul class="post-list">
+        {%- for post in site.posts -%}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <hr>
+          <img src="{{- post.image | relative_url -}}" alt="" class="blog-roll-image">
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+        {%- endfor -%}
+      </ul> -->
+
+    {%- endif -%}
+
+  </div>
+  
 </div>
