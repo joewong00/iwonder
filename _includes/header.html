@@ -5,36 +5,22 @@
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
 
-      <button class="navbar-toggler order-2 order-md-1" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-left navbar-right" aria-expanded="true" aria-label="Toggle navigation">
+      <button class="navbar-toggler order-2 order-md-2" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-left navbar-right" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse order-3 order-md-2 collapse show" id="navbar-left">
+      <div class="navbar-collapse order-3 order-lg-1 collapse show" id="navbar-left">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ "/" | relative_url }}">Home</a>
+            <a class="nav-link" href="{{ "/" | relative_url }}">
+              <span class="hlink">Home</span>
+            </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
               <a class="dropdown-item" href="post-image.html">Image</a>
               <a class="dropdown-item" href="post-video.html">Video</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Components</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="doc-alerts.html">Alerts</a>
-              <a class="dropdown-item" href="doc-buttons.html">Buttons</a>
-              <a class="dropdown-item" href="doc-cards.html">Cards</a>
-              <a class="dropdown-item" href="doc-carousel.html">Carousel</a>
-              <a class="dropdown-item" href="doc-forms.html">Forms</a>
-              <a class="dropdown-item" href="doc-icons.html">Icons</a>
-              <a class="dropdown-item" href="doc-modals.html">Modals</a>
-              <a class="dropdown-item" href="doc-offcanvas.html">Offcanvas</a>
-              <a class="dropdown-item" href="doc-pagination.html">Pagination</a>
-              <a class="dropdown-item" href="doc-tables.html">Tables</a>
-              <a class="dropdown-item" href="doc-typography.html">Typography</a>
             </div>
           </li>
         </ul>
@@ -50,7 +36,9 @@
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
               <li class="nav-item">
-                <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                <a class="nav-link" href="{{ my_page.url | relative_url }}">
+                  <span class="hlink">{{ my_page.title | escape }}</span>
+                </a>
               </li>
             {%- endif -%}
           {%- endfor -%}

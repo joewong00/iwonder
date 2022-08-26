@@ -66,8 +66,7 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
-@import "header", "footer";
-
+@import "header", "footer", "post";
 
 
 /**
@@ -76,8 +75,12 @@ $on-laptop:        800px !default;
 #overrides a {
   color: black;
   text-decoration: none;
+  
+  .username {
+    color: $grey-color;
+  }
 
-  .username{
+  .hlink {
     color: $grey-color;
   }
 
@@ -86,7 +89,7 @@ $on-laptop:        800px !default;
   }
 
   &:hover {
-    color: $text-color;
+    color: $grey-color-dark;
     // text-decoration: underline;
   }
 
@@ -162,3 +165,7 @@ blockquote {
 }
 
 
+#overrides .page a {
+  color: blue;
+  text-decoration: none
+}

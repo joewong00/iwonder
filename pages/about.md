@@ -18,5 +18,4 @@ You can always dm me for any clarification, content suggestions, and knowledge t
 I will share at least one content every fortnight for now, I do hope that you will be enlightened!! 🤓
 \
 \
-If you like **story** from books, movies, songs, theatre and musicals, be sure to check out my friend's Jekyll blog [whatsthestoryabout
-](https://chuangcaleb.github.io/wtsa/)!
+If you like **story** from books, movies, songs, theatre and musicals, be sure to check out my friend's Jekyll blog [whatsthestoryabout](https://chuangcaleb.github.io/wtsa/)!

@@ -1,33 +1,44 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+<main class="main pt-4">
+  <div class="container">
+    <div class="column-md-9">
 
-  <header class="post-header">
-    {% include toc.html html=content class="toc" %}
-    {%- if page.image -%}
-      <img src="{{- page.image | relative_url -}}" alt="" class="feature-image-post">
-    {%- endif -%}
-     
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      Published on
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
-  </header>
+      <article class="card mb-4">
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+        <header class="card-header text-center">
+          <div class="card-meta">
+            Published on
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+              {{ page.date | date: date_format }}
+            </time>
+            {%- if page.author -%}
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+            {%- endif -%}</p>
+          </div>
+          <h1 class="card-title" style="font-size: 50px">{{ page.title | escape }}</h1>
+        </header>
+
+        {% include toc.html html=content class="toc" %}
+
+        {%- if page.image -%}
+          <img src="{{- page.image | relative_url -}}" alt="" class="card-img" style='max-width:800px; margin: auto;'>
+        {%- endif -%}
+          
+        <br>
+        <div class="post-content e-content" itemprop="articleBody">
+          {{ content }}
+        </div>
+      
+        {%- if site.disqus.shortname -%}
+          {%- include disqus_comments.html -%}
+        {%- endif -%}
+      
+        <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+      </article>
+
+    </div>
   </div>
-
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+</main>

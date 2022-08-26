@@ -1,0 +1,47 @@
+/* TOC */
+// Phone
+@media only screen and (max-width:500px){
+    .toc {
+      float: right;
+      max-width: 1in;
+      position:static;
+          padding-inline: 20px;
+      padding-block: 10px;
+          outline: 1px solid lightgray;
+          font-size: 90%;
+          align-items: center;
+          margin-bottom: 30px;
+      margin-left: 2%;
+    }  
+  }
+  
+  
+@media only screen and (max-width:1300px) and (min-width:500px){
+.toc {
+    float: right;
+    max-width: 1.8in;
+    position:static;
+        padding-inline: 20px;
+    padding-block: 10px;
+        outline: 1px solid lightgray;
+        font-size: 90%;
+        align-items: center;
+        margin-bottom: 30px;
+    margin-left: 2%;
+}  
+}
+
+@media only screen and (min-width:1300px) {
+.toc {
+    left:11.5in;
+    float: right;
+    position: fixed;
+    top: 90px;
+    padding-inline: 20px;
+    padding-block: 15px;
+        outline: 1px solid lightgray;
+    max-width: 2in;
+    font-size: 85%;
+}  
+}
+
