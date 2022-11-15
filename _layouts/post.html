@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<main class="main pt-4">
+<main class="post pt-4">
   <div class="container">
     <div class="column-md-9">
 
@@ -18,17 +18,17 @@ layout: default
               • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
             {%- endif -%}</p>
           </div>
-          <h1 class="card-title" style="font-size: 50px">{{ page.title | escape }}</h1>
+          <h1 class="card-title">{{ page.title | escape }}</h1>
         </header>
 
-        {% include toc.html html=content class="toc" %}
+        <!-- {% include toc.html html=content class="toc" %} -->
 
         {%- if page.image -%}
-          <img src="{{- page.image | relative_url -}}" alt="" class="card-img" style='max-width:800px; margin: auto;'>
+          <img src="{{- page.image | relative_url -}}" alt="" class="card-img">
         {%- endif -%}
           
         <br>
-        <div class="post-content e-content" itemprop="articleBody">
+        <div class="content" itemprop="articleBody">
           {{ content }}
         </div>
       

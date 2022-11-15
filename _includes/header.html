@@ -30,7 +30,7 @@
         <logo><img src="{{site.baseurl}}/assets/iwonder-logo.png" alt="LOGO" style="width: 40px;"></logo>{{site.title| escape }}
       </a>
 
-      <div class="navbar-collapse order-4 order-md-4 collapse show" id="navbar-right">
+      <div class="navbar-collapse order-3 order-md-3 collapse show" id="navbar-right">
         <ul class="navbar-nav ms-auto">
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}

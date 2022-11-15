@@ -1,47 +1,45 @@
-/* TOC */
-// Phone
-@media only screen and (max-width:500px){
-    .toc {
-      float: right;
-      max-width: 1in;
-      position:static;
-          padding-inline: 20px;
-      padding-block: 10px;
-          outline: 1px solid lightgray;
-          font-size: 90%;
-          align-items: center;
-          margin-bottom: 30px;
-      margin-left: 2%;
-    }  
-  }
-  
-  
-@media only screen and (max-width:1300px) and (min-width:500px){
-.toc {
-    float: right;
-    max-width: 1.8in;
-    position:static;
-        padding-inline: 20px;
-    padding-block: 10px;
-        outline: 1px solid lightgray;
-        font-size: 90%;
-        align-items: center;
-        margin-bottom: 30px;
-    margin-left: 2%;
-}  
-}
+.post {
+    .container {
+        padding-inline: 10vw;
+    }
+    .card {
+        padding: 10px;
+        border: none;
+        border-radius: 0;
+        .card-meta{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: .9em;
+            color: $grey-color;
+        }
+        .card-title{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 2.5em;
+        }
+    }
+    .card-header{
+        background-color: #ffffff;
+        border-bottom: 0 solid rgba(0,0,0,.125);
+        margin-bottom: 0;
+        padding: .75rem 1.5rem;
+    }
 
-@media only screen and (min-width:1300px) {
-.toc {
-    left:11.5in;
-    float: right;
-    position: fixed;
-    top: 90px;
-    padding-inline: 20px;
-    padding-block: 15px;
-        outline: 1px solid lightgray;
-    max-width: 2in;
-    font-size: 85%;
-}  
-}
+    .card-img {
+        max-width: 800px;
+        margin: auto;
+    }
 
+    .content {
+        text-align: justify;
+
+        img {
+            max-width: 500px;
+            margin: 10px
+        }
+    }
+
+    blockquote {
+        text-align: center;
+        font-size: 1.5em;
+    }
+}
