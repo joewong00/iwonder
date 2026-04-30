@@ -1,0 +1,36 @@
+{{ define "main" }}
+<main class="post pt-4">
+  <div class="container">
+    <div class="column-md-9">
+
+      <article class="card mb-4">
+
+        <header class="card-header text-center">
+          <div class="card-meta">
+            Published on
+            <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </time>
+            {{ with .Params.author }}
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ . }}</span></span>
+            {{ end }}
+          </div>
+          <h1 class="card-title">{{ .Title }}</h1>
+        </header>
+
+        {{ with .Params.image }}
+          <img src="{{ . | absURL }}" alt="" class="card-img">
+        {{ end }}
+          
+        <br>
+        <div class="content" itemprop="articleBody">
+          {{ .Content }}
+        </div>
+      
+        <a class="u-url" href="{{ .RelPermalink }}" hidden></a>
+      </article>
+
+    </div>
+  </div>
+</main>
+{{ end }}

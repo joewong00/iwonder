@@ -1,0 +1,33 @@
+baseURL = "https://joewong00.github.io/iwonder/"
+languageCode = "en"
+title = "I Wonder"
+summaryLength = 40
+
+[params]
+  description = "A personal dedicated blog for knowledge sharing and discussion."
+  author = "Joe Wong"
+  email = "joewong00@gmail.com"
+  instagram_username = "i.wonder__"
+  github_username = "joewong00"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    name = "Browse"
+    url = "/browse/"
+    weight = 3

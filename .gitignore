@@ -1,15 +1,14 @@
-# Created by https://www.toptal.com/developers/gitignore/api/jekyll
-# Edit at https://www.toptal.com/developers/gitignore?templates=jekyll
+# Hugo generated files
+public/
+resources/
 
-### Jekyll ###
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.bundle/
-vendor/
+# OS files
+.DS_Store
+Thumbs.db
 
-# End of https://www.toptal.com/developers/gitignore/api/jekyll
+# Editor
+.vscode/
+.idea/
 
-**/.DS_Store
-.vscode
+# Hugo lock
+.hugo_build.lock

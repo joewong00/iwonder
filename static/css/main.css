@@ -1,0 +1,300 @@
+/* =========================================
+   I Wonder - Hugo CSS
+   Ported from Jekyll SCSS
+   ========================================= */
+
+/* --- Variables (CSS custom properties) --- */
+:root {
+  --base-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --base-font-size: 16px;
+  --base-font-weight: 400;
+  --base-line-height: 1.5;
+  --spacing-unit: 30px;
+  --text-color: #111;
+  --background-color: #fdfdfd;
+  --brand-color: #2a7ae2;
+  --grey-color: #828282;
+  --grey-color-light: #e8e8e8;
+  --grey-color-dark: #424242;
+}
+
+/* =========================================
+   Links
+   ========================================= */
+#overrides a {
+  color: black;
+  text-decoration: none;
+}
+
+#overrides a .username {
+  color: var(--grey-color);
+}
+
+#overrides a .hlink {
+  color: var(--grey-color);
+}
+
+#overrides a:visited {
+  color: black;
+}
+
+#overrides a:hover {
+  color: var(--grey-color-dark);
+}
+
+#overrides a .social-media-list:hover {
+  text-decoration: none;
+}
+
+#overrides a .social-media-list:hover .username {
+  text-decoration: none;
+}
+
+/* =========================================
+   Blockquotes
+   ========================================= */
+blockquote {
+  color: var(--grey-color);
+  font-size: 1.125rem;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   Header / Navbar
+   ========================================= */
+.navbar {
+  font-family: var(--base-font-family);
+}
+
+.navbar .navbar-brand {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: x-large;
+  font-weight: 650;
+  padding-right: 1cm;
+  padding-left: 1cm;
+}
+
+.navbar .form-control {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 10px 0px;
+  font-family: var(--base-font-family);
+}
+
+.site-footer .footer-heading {
+  font-size: 1.125rem;
+  margin-bottom: 15px;
+  color: var(--grey-color);
+  padding-top: 8px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .site-footer .container {
+    padding: 10px 3em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .site-footer .nav-link {
+    display: none;
+  }
+}
+
+.nav .nav-link {
+  color: var(--grey-color) !important;
+}
+
+.nav .nav-link:hover {
+  color: white !important;
+}
+
+.username:hover {
+  color: white;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.svg-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: var(--grey-color);
+  margin-right: 5px;
+  padding-left: 0;
+  margin-left: -1.5cm;
+  vertical-align: text-top;
+}
+
+/* =========================================
+   Home Page - Cards (Masonry Grid)
+   ========================================= */
+.home .card {
+  padding: 10px;
+  background-clip: border-box;
+  background-color: transparent;
+  border: 0 solid rgba(0, 0, 0, .125);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+}
+
+.home .card .timeago {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  color: var(--grey-color);
+}
+
+.home .card .card-category {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  color: var(--brand-color);
+  font-weight: 500;
+}
+
+.home .card .card-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.home .card-header {
+  background-color: #ffffff;
+  border-bottom: 0 solid rgba(0, 0, 0, .125);
+  margin-bottom: 0;
+  padding: .75rem 1.5rem;
+}
+
+.home .card-img {
+  transition: all .2s ease-in-out;
+}
+
+.home .card-img:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
+  transform: translateY(-6px);
+}
+
+#overrides .page a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* =========================================
+   Single Post
+   ========================================= */
+.post .container {
+  padding-inline: 10vw;
+}
+
+.post .card {
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+}
+
+.post .card .card-meta {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: .9em;
+  color: var(--grey-color);
+}
+
+.post .card .card-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.post .card-header {
+  background-color: #ffffff;
+  border-bottom: 0 solid rgba(0, 0, 0, .125);
+  margin-bottom: 0;
+  padding: .75rem 1.5rem;
+}
+
+.post .card-img {
+  max-width: 800px;
+  margin: auto;
+}
+
+.post .content {
+  text-align: justify;
+}
+
+.post .content img {
+  max-width: 500px;
+  margin: 10px;
+}
+
+.post blockquote {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* =========================================
+   TOC
+   ========================================= */
+@media only screen and (max-width: 500px) {
+  .toc {
+    float: right;
+    max-width: 1in;
+    position: static;
+    padding-inline: 20px;
+    padding-block: 10px;
+    outline: 1px solid lightgray;
+    font-size: 90%;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 2%;
+  }
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 500px) {
+  .toc {
+    float: right;
+    max-width: 1.8in;
+    position: static;
+    padding-inline: 20px;
+    padding-block: 10px;
+    outline: 1px solid lightgray;
+    font-size: 90%;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 2%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .toc {
+    left: 11.5in;
+    float: right;
+    position: fixed;
+    top: 90px;
+    padding-inline: 20px;
+    padding-block: 15px;
+    outline: 1px solid lightgray;
+    max-width: 2in;
+    font-size: 85%;
+  }
+}
+
+/* =========================================
+   Hugo highlight overrides
+   ========================================= */
+.highlight pre {
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}

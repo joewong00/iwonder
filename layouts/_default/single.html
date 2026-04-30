@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="page container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <article class="card mb-4">
+        <header class="card-header">
+          <h1 class="card-title">{{ .Title }}</h1>
+        </header>
+
+        {{ with .Params.image }}
+          <img src="{{ . | absURL }}" alt="i wonder" class="img-fluid" style="width: 500px;">
+        {{ end }}
+      
+        <div class="card-body">
+          {{ .Content }}
+        </div>
+      
+      </article>
+    </div>
+  </div>
+</div>
+{{ end }}
