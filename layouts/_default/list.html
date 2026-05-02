@@ -1,25 +1,48 @@
 {{ define "main" }}
-<div class="page container">
+<div class="page container pt-4">
   <div class="row">
     <div class="col-md-10 mx-auto">
-      <article class="card mb-4">
-        <header class="card-header">
+      <article class="card mb-4" style="border: none; background: transparent;">
+        <header class="card-header" style="background: transparent; border-bottom: none;">
           <h1 class="card-title">{{ .Title }}</h1>
         </header>
         <div class="card-body">
           {{ .Content }}
+          
           {{ if eq .Title "Browse" }}
-          <ul>
-            {{ range where .Site.RegularPages "Section" "posts" }}
-            <li>
-              <h4>
-                <a class="browse-link" href="{{ .RelPermalink }}">
-                  {{ .Title }}
+            <h3 class="mt-4 mb-3">Categories</h3>
+            <ul class="list-inline mb-5">
+              {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+              <li class="list-inline-item">
+                <a href="{{ printf "categories/%s/" ($name | urlize) | absURL }}" class="btn btn-outline-primary m-1" style="border-color: var(--brand-color); color: var(--brand-color);">
+                  {{ $name | humanize | title }} <span class="badge bg-secondary rounded-pill">{{ $taxonomy.Count }}</span>
                 </a>
-              </h4>
-            </li>
-            {{ end }}
-          </ul>
+              </li>
+              {{ end }}
+            </ul>
+
+            <h3 class="mt-4 mb-3">All Posts</h3>
+            <ul class="list-group list-group-flush mb-5">
+              {{ range where .Site.RegularPages "Section" "posts" }}
+              <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent;">
+                <a class="browse-link text-decoration-none" href="{{ .RelPermalink }}" style="color: var(--text-color);">
+                  <h5 class="mb-0">{{ .Title }}</h5>
+                </a>
+                <span class="text-muted small">{{ .Date.Format "Jan 2, 2006" }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          {{ else }}
+            <ul class="list-group list-group-flush">
+              {{ range .Pages }}
+              <li class="list-group-item d-flex justify-content-between align-items-center" style="background: transparent;">
+                <a class="browse-link text-decoration-none" href="{{ .RelPermalink }}" style="color: var(--text-color);">
+                  <h5 class="mb-0">{{ .Title }}</h5>
+                </a>
+                <span class="text-muted small">{{ .Date.Format "Jan 2, 2006" }}</span>
+              </li>
+              {{ end }}
+            </ul>
           {{ end }}
         </div>
       </article>

@@ -2,14 +2,16 @@
 <div class="home pt-4">
   <div class="container">
 
-    {{ .Content }}
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h1 class="display-4">{{ .Title }}</h1>
+        <p class="text-muted">Filtered by category</p>
+      </div>
+    </div>
 
-    {{ $pages := where .Site.RegularPages "Section" "posts" }}
-    {{ if $pages }}
-
+    {{ if .Pages }}
       <div class="row" data-masonry='{"percentPosition": true }'>
-
-        {{ range $pages.ByDate.Reverse }}
+        {{ range .Pages.ByDate.Reverse }}
           <div class="col-lg-4 col-md-6">
             <article class="card mb-4">
               <header class="card-header">
@@ -39,7 +41,6 @@
           </div>
         {{ end }}
       </div>
-
     {{ end }}
 
   </div>

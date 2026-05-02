@@ -3,11 +3,11 @@
 
   {{ partial "head.html" . }}
 
-  <body id="overrides">
+  <body id="overrides" class="d-flex flex-column min-vh-100">
 
     {{ partial "header.html" . }}
 
-    <main class="page-content" aria-label="Content">
+    <main class="page-content flex-grow-1" aria-label="Content">
       <div class="wrapper">
         {{ block "main" . }}{{ end }}
       </div>
