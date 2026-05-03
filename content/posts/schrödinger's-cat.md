@@ -6,19 +6,21 @@ image: "images/schrödinger's-cat/scat.png"
 categories: ["General"]
 draft: false
 --- 
+> Curiosity kills the cat
 
->"Curiosity kills the cat."
-
-Have you ever wondered how curiosity can actually kill a cat? 
-Yes, it's none other than one of the most famous thought experiments "Schrödinger's Cat" devised by physicist [Erwin Schrödinger](#keywords) to illustrate quantum mechanics. 
+Have you ever wondered how curiosity can actually kill a cat? It’s not just a saying—it’s also tied to one of the most famous thought experiments: **Schrödinger’s Cat**, proposed by physicist Erwin Schrödinger.
 
 <!--more-->
 
-This thought experiment presents a hypothetical cat being placed into a closed box containing a radioactive substance with **equal** probability of [decaying](#keywords), and a flask containing poisonous gas. If radioactivity is detected(ie. the atoms have decayed), a hammer is released that breaks the flask and poisonous gas is released, killing the cat. 
+This thought experiment describes a hypothetical cat placed inside a sealed box containing a radioactive substance, a detector, and a flask of poisonous gas. If the radioactive atoms decay, the detector triggers a hammer that breaks the flask, releasing the gas and killing the cat.
 
-As there are equal probability of atoms decaying, no one can say that the cat is either dead or alive until one opens the box. Thus, the cat is said to be **simultaneously dead and alive**, which is a state known as [Quantum Superposition](#keywords). Yet if one opens the box, one sees that the cat is **either** dead or alive, **not both** dead and alive.
+Because radioactive decay is probabilistic, there is a chance that the atoms decay and a chance that they do not. Until the box is opened, we cannot know the outcome.
 
-This thought experiment greatly illustrate the interpretations of [quantum mechanics](#keywords), as one can say that a **subatomic event** can **simultaneously** occus and not occur until one observes it.
+According to certain interpretations of quantum mechanics, the system can be described as a **superposition** of states—meaning the cat is both dead and alive at the same time, at least in theory. This idea is known as Quantum Superposition.
+
+However, once the box is opened, the superposition appears to “collapse,” and we observe the cat as either dead or alive—not both.
+
+Schrödinger proposed this paradox to highlight how strange quantum theory becomes when applied to everyday objects. It raises deep questions about observation, measurement, and reality itself.
 
 ```
 Curiosity makes us open the box, 
