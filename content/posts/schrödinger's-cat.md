@@ -3,7 +3,7 @@ title: "Schrödinger's Cat"
 date: 2020-12-24
 slug: "schrödinger's-cat"
 image: "images/schrödinger's-cat/scat.png"
-categories: ["General"]
+categories: ["Physics"]
 draft: false
 --- 
 > Curiosity kills the cat
@@ -30,7 +30,9 @@ but it may also kill the cat!
 <br>
 <!--Keywords-->
 <hr>
+
 ### Keywords
+
 - **Erwin Schrödinger**: Erwin Rudolf Josef Alexander Schrödinger (12 August 1887 – 4 January 1961), sometimes written as Erwin Schrodinger or Erwin Schroedinger, was a Nobel Prize-winning Austrian-Irish physicist who developed a number of fundamental results in quantum theory. In popular culture, he is most known for his "Schrödinger's cat" thought experiment.
   
 - **Quantum Superposition**: Quantum superposition is a fundamental principle of quantum mechanics. It states that, much like waves in classical physics, any two (or more) quantum states can be added together ("superposed") and the result will be another valid quantum state; and conversely, that every quantum state can be represented as a sum of two or more other distinct states. 
@@ -56,15 +58,12 @@ but it may also kill the cat!
 <br>
 <!--References-->
 <hr>
+
 ### References
-[https://en.wikipedia.org/wiki/Erwin_Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schrödinger)
-\
-[https://en.wikipedia.org/wiki/Quantum_superposition](https://en.wikipedia.org/wiki/Quantum_superposition)
-\
-c[https://en.wikipedia.org/wiki/Schrödinger%27s_cat](https://en.wikipedia.org/wiki/Schrödinger%27s_cat)
-\
-[https://www.youtube.com/watch?v=UjaAxUO6-Uw](https://www.youtube.com/watch?v=UjaAxUO6-Uw)
-\
-[https://en.wikipedia.org/wiki/Radioactive_decay](https://en.wikipedia.org/wiki/Radioactive_decay)
-\
-[https://en.wikipedia.org/wiki/Quantum_mechanics](https://en.wikipedia.org/wiki/Quantum_mechanics)
+
+- [https://en.wikipedia.org/wiki/Erwin_Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schrödinger)
+- [https://en.wikipedia.org/wiki/Quantum_superposition](https://en.wikipedia.org/wiki/Quantum_superposition)
+- [https://en.wikipedia.org/wiki/Schrödinger%27s_cat](https://en.wikipedia.org/wiki/Schrödinger%27s_cat)
+- [https://www.youtube.com/watch?v=UjaAxUO6-Uw](/34f34b983dfc801aa659da82ba6a1c4e)
+- [https://en.wikipedia.org/wiki/Radioactive_decay](https://en.wikipedia.org/wiki/Radioactive_decay)
+- [https://en.wikipedia.org/wiki/Quantum_mechanics](https://en.wikipedia.org/wiki/Quantum_mechanics)
