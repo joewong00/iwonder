@@ -49,9 +49,11 @@ def get_page_content(page_id):
     response.raise_for_status()
     return response.json()['results']
 
-def notion_to_markdown(blocks):
+def notion_to_markdown(blocks, slug):
     """Convert Notion blocks to markdown"""
     markdown = []
+    first_image_path = None
+    image_counter = 1
     for block in blocks:
         block_type = block['type']
         # Paragraph
@@ -95,9 +97,42 @@ def notion_to_markdown(blocks):
         elif block_type == 'image':
             url = block['image'].get('file', {}).get('url') or block['image'].get('external', {}).get('url')
             if url:
-                caption = rich_text_to_markdown(block['image'].get('caption', []))
-                alt_text = caption if caption else 'Image'
-                markdown.append(f'![{alt_text}]({url})')
+                try:
+                    # Ensure static/images/slug directory exists
+                    img_dir = Path('../static/images') / slug
+                    img_dir.mkdir(parents=True, exist_ok=True)
+                    
+                    # Get extension from URL
+                    parsed_url = requests.utils.urlparse(url)
+                    ext = os.path.splitext(parsed_url.path)[1]
+                    if not ext:
+                        ext = '.jpg'
+                    
+                    local_filename = f"image_{image_counter}{ext}"
+                    local_filepath = img_dir / local_filename
+                    
+                    # Download the image
+                    img_data = requests.get(url).content
+                    with open(local_filepath, 'wb') as handler:
+                        handler.write(img_data)
+                    
+                    # Path for Hugo relative to static folder
+                    hugo_image_path = f"images/{slug}/{local_filename}"
+                    
+                    if first_image_path is None:
+                        first_image_path = hugo_image_path
+                        image_counter += 1
+                        continue # Skip adding the first image to the main post body
+                        
+                    caption = rich_text_to_markdown(block['image'].get('caption', []))
+                    alt_text = caption if caption else 'Image'
+                    
+                    # Markdown image format with /iwonder/ prefix for correct rendering
+                    markdown.append(f'![{alt_text}](/iwonder/{hugo_image_path})')
+                    image_counter += 1
+                except Exception as e:
+                    print(f"Failed to download image: {e}")
+                    markdown.append(f'![Image]({url})')
         # Divider
         elif block_type == 'divider':
             markdown.append('---')
@@ -114,7 +149,7 @@ def notion_to_markdown(blocks):
             else:
                 result.append('\n\n')
                 
-    return ''.join(result)
+    return ''.join(result), first_image_path
 
 def rich_text_to_markdown(rich_text):
     """Convert Notion rich text to markdown formatting"""
@@ -184,7 +219,7 @@ def extract_properties(page):
         'categories': categories
     }
 
-def create_hugo_post(page_id, properties, content):
+def create_hugo_post(page_id, properties, content, first_image_path):
     """Create Hugo markdown file with front matter"""
     slug = properties['slug']
     filename = f"{slug}.md"
@@ -192,10 +227,11 @@ def create_hugo_post(page_id, properties, content):
     # Build front matter
     tags_str = ', '.join([f'"{tag}"' for tag in properties['tags']])
     categories_str = ', '.join([f'"{category}"' for category in properties['categories']])
+    image_front_matter = f'\nimage: "{first_image_path}"' if first_image_path else ""
     front_matter = f"""---
 title: "{properties['title']}"
 date: {properties['date']}
-slug: {properties['slug']}
+slug: "{properties['slug']}"{image_front_matter}
 categories: [{categories_str}]
 draft: false
 ---
@@ -224,11 +260,11 @@ def sync():
         try:
             # Extract properties
             properties = extract_properties(page)
-            # Fetch content
+            # Fetch content and download images
             blocks = get_page_content(page['id'])
-            content = notion_to_markdown(blocks)
+            content, first_image_path = notion_to_markdown(blocks, properties['slug'])
             # Create Hugo post
-            create_hugo_post(page['id'], properties, content)
+            create_hugo_post(page['id'], properties, content, first_image_path)
             synced += 1
         except Exception as e:
             print(f'✗ Error processing page: {e}')

@@ -2,7 +2,7 @@
 title: "Schrödinger's Cat"
 date: 2020-12-24
 slug: "schrödinger's-cat"
-image: "images/schrödinger's-cat/scat.png"
+image: "images/schrödinger's-cat/image_1.png"
 categories: ["Physics"]
 draft: false
 --- 
@@ -45,15 +45,13 @@ but it may also kill the cat!
 <br>
 <!--Images-->
 <hr>
+
 ### Images
-<div class="row">
-  <div class="column">
-    <img src="/iwonder/images/schrödinger's-cat/box.jpg" alt="" class="feature-image-post">
-  </div>
-  <div class="column">
-    <img src="/iwonder/images/schrödinger's-cat/catmeme.jpeg" alt="" class="feature-image-post">
-  </div>
-</div>
+
+
+![Image](/iwonder/images/schrödinger's-cat/image_2.png)
+
+![Image](/iwonder/images/schrödinger's-cat/image_3.jpg)
 
 <br>
 <!--References-->
