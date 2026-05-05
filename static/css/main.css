@@ -5,24 +5,49 @@
 
 /* --- Variables (CSS custom properties) --- */
 :root {
-  --base-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading-font-family: 'Playfair Display', Georgia, serif;
   --base-font-size: 16px;
   --base-font-weight: 400;
-  --base-line-height: 1.5;
+  --base-line-height: 1.6;
   --spacing-unit: 30px;
-  --text-color: #111;
-  --background-color: #fdfdfd;
+  --text-color: #2b2b2b;
+  --background-color: #ffffff;
   --brand-color: #2a7ae2;
-  --grey-color: #828282;
-  --grey-color-light: #e8e8e8;
-  --grey-color-dark: #424242;
+  --grey-color: #6c757d;
+  --grey-color-light: #f8f9fa;
+  --grey-color-dark: #343a40;
+  --card-bg: #ffffff;
+  --card-border: rgba(0,0,0,0.05);
+}
+
+[data-bs-theme="dark"] {
+  --text-color: #e9ecef;
+  --background-color: #121212;
+  --brand-color: #4da3ff;
+  --grey-color: #adb5bd;
+  --grey-color-light: #212529;
+  --grey-color-dark: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255,255,255,0.05);
+}
+
+body {
+  font-family: var(--base-font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: var(--base-line-height);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: var(--heading-font-family) !important;
 }
 
 /* =========================================
    Links
    ========================================= */
 #overrides a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -35,11 +60,11 @@
 }
 
 #overrides a:visited {
-  color: black;
+  color: var(--text-color);
 }
 
 #overrides a:hover {
-  color: var(--grey-color-dark);
+  color: var(--brand-color);
 }
 
 #overrides a .social-media-list:hover {
@@ -69,12 +94,12 @@ blockquote > :last-child {
    ========================================= */
 .navbar {
   font-family: var(--base-font-family);
+  background-color: var(--background-color) !important;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .navbar .navbar-brand {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: x-large;
-  font-weight: 650;
+  font-size: 1.8rem;
   padding-right: 1cm;
   padding-left: 1cm;
 }
@@ -139,52 +164,71 @@ blockquote > :last-child {
 /* =========================================
    Home Page - Cards (Masonry Grid)
    ========================================= */
-.home .card {
-  padding: 10px;
-  background-clip: border-box;
-  background-color: transparent;
-  border: 0 solid rgba(0, 0, 0, .125);
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
-  border-radius: 0;
+.home .card, .page .card {
+  padding: 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   min-width: 0;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+  transition: all 0.3s ease-in-out;
 }
 
-.home .card .timeago {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.home .card:hover, .page .card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.home .card .timeago, .page .card .timeago {
+  font-family: var(--base-font-family);
   font-size: 13px;
   color: var(--grey-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.home .card .card-category {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.home .card .card-category, .page .card .card-category {
+  font-family: var(--base-font-family);
   font-size: 13px;
   color: var(--brand-color);
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.home .card .card-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 25px;
+.home .card .card-title, .page .card .card-title {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-top: 8px;
+  line-height: 1.3;
 }
 
-.home .card-header {
-  background-color: #ffffff;
-  border-bottom: 0 solid rgba(0, 0, 0, .125);
+.home .card-header, .page .card-header {
+  background-color: transparent;
+  border-bottom: none;
   margin-bottom: 0;
-  padding: .75rem 1.5rem;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
 }
 
-.home .card-img {
-  transition: all .2s ease-in-out;
+.home .card-img, .page .card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
 }
 
-.home .card-img:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 30px 0 rgba(0, 0, 0, 0.19);
-  transform: translateY(-6px);
+.home .card-body, .page .card-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.home .card-text, .page .card-text {
+  color: var(--grey-color);
+  font-size: 0.95rem;
 }
 
 #overrides .page a {
@@ -200,28 +244,33 @@ blockquote > :last-child {
 }
 
 .post .card {
-  padding: 10px;
+  padding: 0;
   border: none;
-  border-radius: 0;
+  background-color: transparent;
 }
 
 .post .card .card-meta {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: .9em;
+  font-family: var(--base-font-family);
+  font-size: .95em;
   color: var(--grey-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .post .card .card-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: bold;
-  font-size: 2.5em;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--text-color);
+  line-height: 1.2;
 }
 
 .post .card-header {
-  background-color: #ffffff;
-  border-bottom: 0 solid rgba(0, 0, 0, .125);
-  margin-bottom: 0;
-  padding: .75rem 1.5rem;
+  background-color: transparent;
+  border-bottom: none;
+  margin-bottom: 2rem;
+  padding: 0;
+  text-align: center;
 }
 
 .post .card-img {
@@ -234,8 +283,20 @@ blockquote > :last-child {
 }
 
 .post .content img {
-  max-width: 500px;
-  margin: 10px;
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .post .content img {
+    max-width: 500px;
+  }
+}
+
+.navbar-brand, .nav-link, .hlink {
+  color: var(--text-color) !important;
 }
 
 .post blockquote {

@@ -3,6 +3,7 @@ title: "Schrödinger's Cat"
 date: 2020-12-24
 slug: "schrödinger's-cat"
 image: "images/schrödinger's-cat/image_1.png"
+author: "Joe Wong"
 categories: ["Physics"]
 draft: false
 --- 
