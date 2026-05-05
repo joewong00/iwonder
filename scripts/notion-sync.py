@@ -210,13 +210,22 @@ def extract_properties(page):
     categories = []
     if cat_prop and cat_prop.get('multi_select'):
         categories = [category['name'] for category in cat_prop['multi_select']]
+
+    # Author
+    author_prop = props.get('Created By')
+    author = ''
+    if author_prop and author_prop.get('people'):
+        author = author_prop['people'][0]['name']
+    if not author:
+        author = ""
     return {
         'title': title,
         'date': date,
         'slug': slug,
         'description': description,
         'tags': tags,
-        'categories': categories
+        'categories': categories,
+        'author': author
     }
 
 def create_hugo_post(page_id, properties, content, first_image_path):
@@ -227,11 +236,13 @@ def create_hugo_post(page_id, properties, content, first_image_path):
     # Build front matter
     tags_str = ', '.join([f'"{tag}"' for tag in properties['tags']])
     categories_str = ', '.join([f'"{category}"' for category in properties['categories']])
-    image_front_matter = f'\nimage: "{first_image_path}"' if first_image_path else ""
+    image_front_matter = f"{first_image_path}" if first_image_path else ""
     front_matter = f"""---
 title: "{properties['title']}"
 date: {properties['date']}
-slug: "{properties['slug']}"{image_front_matter}
+slug: "{properties['slug']}"
+image: "{image_front_matter}"
+author: "{properties['author']}"
 categories: [{categories_str}]
 draft: false
 ---
