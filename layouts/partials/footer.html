@@ -60,5 +60,18 @@
         themeIcon.classList.add('bi-moon-stars-fill');
       }
     }
+
+    // Fix Masonry overlapping bug by reloading layout after images load
+    const masonryGrid = document.querySelector('[data-masonry]');
+    if (masonryGrid && typeof imagesLoaded !== 'undefined') {
+      imagesLoaded(masonryGrid).on('progress', function() {
+        if (typeof Masonry !== 'undefined') {
+          const msnry = Masonry.data(masonryGrid);
+          if (msnry) {
+            msnry.layout();
+          }
+        }
+      });
+    }
   });
 </script>
