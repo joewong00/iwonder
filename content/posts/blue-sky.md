@@ -1,29 +1,34 @@
 ---
-title: "Sky is blue..?"
+title: "Blue Sky"
 date: 2020-12-25
 slug: "blue-sky"
-image: "images/blue-sky/bluesky.jpg"
-categories: ["General"]
+image: "images/blue-sky/image_1.png"
+author: "Joe Wong"
+categories: ["Nature"]
 draft: false
 ---
+> Above us is a blue illusion
 
->"The sun is up, the sky is blue".. but why?
-
-Have you ever wondered why when the sun is high up, the sky is so blue and so bright? In contrast, the outer space beyond us always looks like a black void?
+Have you ever wondered why the sky appears so bright and blue during the day, while in contrast, the outer space beyond us looks like a dark void?
 
 <!--more-->
 
-Thanks to that one thing the earth has but the outer space is lack of: [atmosphere](#keywords). The earth's atmosphere is made up of dust and air particles. Light from sun **scatters** and **reflects** when it hits these particles, eventually reaching our eyes. On the other hand, the outer space is "empty", it has **no atmosphere**, light from the sun and other stars cannot be reflected and scattered off. That's why even when the sun is shining, it's still dark out there.
+The answer lies in something Earth has that outer space mostly lacks: an atmosphere.
 
-The 2nd question is, why the sky appears blue? It all has to do with how we perceive light. You see, the visible '**white light**' we see is composed of **7 distinct colors** (the rainbow color). Light is like an **energy wave** (at least in [classic wave theory](#keywords)), its [wavelength](#keywords) falls within a specific range of the [electromagnetic radiation](#keywords), with **red** having the **shortest** wavelength, and **violet** having the **longest**. 
+Earth’s atmosphere is filled with tiny molecules and particles. When sunlight passes through the atmosphere, the light scatters in different directions before eventually reaching our eyes. In outer space, however, there are almost no particles to scatter the light, so space remains dark even when the Sun is shining.
 
-When the light reaches the earth's atmosphere, much of the **red**, **yellow** and **green** wavelengths pass straight through the atmosphere. The **blue** and **violet** waves have just the right size to scatter off in every direction. As our eyes are **not as sensitive** to violet as they are to blue, hence the blue sky! 🏞🌏
+But why does the sky specifically appear blue?
+
+White sunlight is actually made up of many different colors — the colors of the rainbow. Each color has a different wavelength within the Electromagnetic Radiation spectrum. Red light has the **longest wavelength**, while blue and violet have much **shorter wavelengths**. 
+
+When sunlight enters Earth’s atmosphere, shorter wavelengths like blue and violet scatter much more easily in all directions while the longer wavelengths pass through. Our eyes are also more sensitive to blue light than violet, which is why the sky appears blue to us. 🏞🌏
 
 <br>
 <!--Keywords-->
 <hr>
 
 ### Keywords
+
 - **Atmosphere**: A layer of gas or layers of gases that envelope a planet, and is held in place by the gravity of the planetary body. A planet retains an atmosphere when the gravity is great and the temperature of the atmosphere is low。
   
 - **Classical Wave Theory**: The intensity of the light determines the amplitude of the wave, and so a greater light intensity should cause the electrons on the metal to oscillate more violently and to be ejected with a greater kinetic energy.
@@ -35,30 +40,21 @@ When the light reaches the earth's atmosphere, much of the **red**, **yellow** a
 <br>
 <!--Images-->
 <hr>
+
 ### Images
-<div class="row">
-  <div class="column">
-    <img src="/iwonder/images/blue-sky/darkspace.jpg" alt="">
-  </div>
-  <div class="column">
-    <img src="/iwonder/images/blue-sky/em-spectrum.jpg" alt="">
-  </div>
-  <div class="column">
-    <img src="/iwonder/images/blue-sky/meme.png" alt="">
-  </div>
-</div>
+
+![Image](/iwonder/images/blue-sky/image_2.png)
+
+![Image](/iwonder/images/blue-sky/image_3.png)
 
 <br>
-
 <!--References-->
-***
+<hr>
+
 ### References
-[https://en.wikipedia.org/wiki/Atmosphere](https://en.wikipedia.org/wiki/Atmosphere)
-\
-[https://www.techtarget.com/searchnetworking/definition/wavelength](https://www.techtarget.com/searchnetworking/definition/wavelength)
-\
-[http://vergil.chemistry.gatech.edu/notes/quantrev/node4.html](http://vergil.chemistry.gatech.edu/notes/quantrev/node4.html)
-\
-[https://www.livescience.com/38169-electromagnetism.html](https://www.livescience.com/38169-electromagnetism.html)
-\
-[https://spaceplace.nasa.gov/blue-sky/en/](https://spaceplace.nasa.gov/blue-sky/en/)
+
+- https://en.wikipedia.org/wiki/Atmosphere
+- https://www.techtarget.com/searchnetworking/definition/wavelength
+- http://vergil.chemistry.gatech.edu/notes/quantrev/node4.html
+- https://www.livescience.com/38169-electromagnetism.html
+- https://spaceplace.nasa.gov/blue-sky/en
