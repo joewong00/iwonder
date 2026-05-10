@@ -28,7 +28,7 @@ def query_database():
         'filter': {
             'property': 'Status',
             'status': {
-                'equals': 'Published'
+                'equals': 'Ready'
             }
         },
         'sorts': [
@@ -59,6 +59,8 @@ def notion_to_markdown(blocks, slug):
         # Paragraph
         if block_type == 'paragraph':
             text = rich_text_to_markdown(block['paragraph']['rich_text'])
+            # Fix Hugo summary divider if Notion auto-corrected the dashes
+            text = re.sub(r'<![-—]+more[-—]+>', '<!--more-->', text)
             if text.strip():
                 markdown.append(text)
         # Headings
@@ -261,7 +263,7 @@ def sync():
     # Fetch published posts
     try:
         pages = query_database()
-        print(f'Found {len(pages)} published posts\n')
+        print(f'Found {len(pages)} ready posts\n')
     except Exception as e:
         print(f'❌ Error querying database: {e}')
         return

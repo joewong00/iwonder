@@ -19,19 +19,17 @@
                     in 
                     {{ $len := len . }}
                     {{ range $index, $category := . }}
-                      <a href="{{ printf "categories/%s/" ($category | urlize) | absURL }}" class="card-category text-decoration-none" style="color: var(--brand-color);">{{ $category }}</a>{{ if ne (add $index 1) $len }}, {{ end }}
+                      <a href="{{ printf "categories/%s/" ($category | urlize) | absURL }}" class="card-category text-decoration-none position-relative z-3" style="color: var(--brand-color);">{{ $category }}</a>{{ if ne (add $index 1) $len }}, {{ end }}
                     {{ end }}
                   {{ end }}
                 </div>
-                <a href="{{ .RelPermalink }}">
+                <a href="{{ .RelPermalink }}" class="stretched-link text-decoration-none">
                   <h4 class="card-title">{{ .Title }}</h4>
                 </a>
               </header>
-              <a href="{{ .RelPermalink }}">
                 {{ with .Params.image }}
                   <img class="card-img" style="border-radius: 0;" src="{{ . | absURL }}" alt="">
                 {{ end }}
-              </a>
               <div class="card-body">
                 <p class="card-text">{{ .Summary }}</p>
               </div>

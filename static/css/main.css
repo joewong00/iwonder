@@ -75,6 +75,12 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   text-decoration: none;
 }
 
+.social-media-list, .contact-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
 /* =========================================
    Blockquotes
    ========================================= */
@@ -156,8 +162,6 @@ blockquote > :last-child {
   display: inline-block;
   fill: var(--grey-color);
   margin-right: 5px;
-  padding-left: 0;
-  margin-left: -1.5cm;
   vertical-align: text-top;
 }
 
