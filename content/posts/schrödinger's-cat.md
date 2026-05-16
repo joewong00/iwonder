@@ -13,15 +13,15 @@ Have you ever wondered how curiosity can actually kill a cat? It’s not just a 
 
 <!--more-->
 
-This thought experiment describes a hypothetical cat placed inside a sealed box containing a radioactive substance, a detector, and a flask of poisonous gas. If the radioactive atoms decay, the detector triggers a hammer that breaks the flask, releasing the gas and killing the cat.
+This thought experiment describes a hypothetical cat placed inside a sealed box containing a radioactive substance, a detector, and a flask of poisonous gas. If the radioactive atoms **decay**, the detector triggers a hammer that breaks the flask, releasing the gas and killing the cat.
 
 Because radioactive decay is probabilistic, there is a chance that the atoms decay and a chance that they do not. Until the box is opened, we cannot know the outcome.
 
-According to certain interpretations of quantum mechanics, the system can be described as a **superposition** of states—meaning the cat is both dead and alive at the same time, at least in theory. This idea is known as Quantum Superposition.
+According to certain interpretations of quantum mechanics, the system can be described as a **superposition** of states—meaning the cat is `both dead and alive at the same time`, at least in theory. This idea is known as Quantum Superposition.
 
-However, once the box is opened, the superposition appears to “collapse,” and we observe the cat as either dead or alive—not both.
+However, once the box is opened, the superposition appears to `collapse`, and we observe the cat as either dead or alive — not both.
 
-Schrödinger proposed this paradox to highlight how strange quantum theory becomes when applied to everyday objects. It raises deep questions about observation, measurement, and reality itself.
+Schrödinger proposed this paradox to highlight how strange **quantum mechanics** becomes when applied to everyday objects. It raises deep questions about observation, measurement, and reality itself.
 
 ```
 Curiosity makes us open the box, 

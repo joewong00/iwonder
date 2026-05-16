@@ -19,6 +19,9 @@
   --grey-color-dark: #343a40;
   --card-bg: #ffffff;
   --card-border: rgba(0,0,0,0.05);
+  --accent-bold: #e65100;
+  --accent-italic: #6a1b9a;
+  --blockquote: #815c85;
 }
 
 [data-bs-theme="dark"] {
@@ -30,6 +33,9 @@
   --grey-color-dark: #f8f9fa;
   --card-bg: #1e1e1e;
   --card-border: rgba(255,255,255,0.05);
+  --accent-bold: #ffb74d;
+  --accent-italic: #ce93d8;
+  --blockquote: #af9aa5;
 }
 
 body {
@@ -82,7 +88,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 /* =========================================
-   Blockquotes
+   Blockquotes & Text Styles
    ========================================= */
 blockquote {
   color: var(--grey-color);
@@ -93,6 +99,26 @@ blockquote {
 
 blockquote > :last-child {
   margin-bottom: 0;
+}
+
+.post .content strong, .post .content b {
+  color: var(--accent-bold);
+  font-weight: 700;
+}
+
+.post .content em, .post .content i {
+  color: var(--accent-italic);
+}
+
+.post .content a {
+  color: var(--brand-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.post .content a:hover {
+  color: var(--accent-bold);
 }
 
 /* =========================================

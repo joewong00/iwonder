@@ -90,7 +90,7 @@ def notion_to_markdown(blocks, slug):
         # Code blocks
         elif block_type == 'code':
             code = rich_text_to_markdown(block['code']['rich_text'])
-            markdown.append(f'```\n{code}\n```')
+            markdown.append(f'```md\n{code}\n```')
         # Quotes
         elif block_type == 'quote':
             text = rich_text_to_markdown(block['quote']['rich_text'])
