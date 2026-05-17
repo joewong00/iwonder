@@ -1,9 +1,9 @@
 ---
-title: "Antibiotic Resistance "
+title: "Antibiotic Resistance"
 date: 2026-05-17
 slug: "antibiotic-resistance"
 image: "images/antibiotic-resistance/image_1.png"
-author: "E-Shing work gmail"
+author: "E-Shing Teoh"
 categories: ["Medical"]
 draft: false
 ---
