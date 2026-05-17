@@ -22,6 +22,7 @@
   --accent-bold: #e65100;
   --accent-italic: #6a1b9a;
   --blockquote: #815c85;
+  --accent-code: #d81b60;
 }
 
 [data-bs-theme="dark"] {
@@ -36,6 +37,7 @@
   --accent-bold: #ffb74d;
   --accent-italic: #ce93d8;
   --blockquote: #af9aa5;
+  --accent-code: #ff80ab;
 }
 
 body {
@@ -119,6 +121,39 @@ blockquote > :last-child {
 
 .post .content a:hover {
   color: var(--accent-bold);
+}
+
+.post .content code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  background-color: var(--card-border);
+  color: var(--accent-code);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post .content pre {
+  background-color: #212529 !important;
+  color: #f8f9fa !important;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border-left: 4px solid var(--accent-code);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-block: 1.5rem;
+}
+
+[data-bs-theme="dark"] .post .content pre {
+  background-color: #0a0a0a !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.post .content pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.95em;
 }
 
 /* =========================================
@@ -317,6 +352,28 @@ blockquote > :last-child {
   height: auto;
   margin: 10px auto;
   display: block;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-block: 20px;
+}
+
+.image-gallery img {
+  margin: 0 !important;
+  flex: 1 1 calc(50% - 15px);
+  max-width: calc(50% - 15px) !important;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .image-gallery img {
+    flex: 1 1 100%;
+    max-width: 100% !important;
+  }
 }
 
 @media (min-width: 768px) {

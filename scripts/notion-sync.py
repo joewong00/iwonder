@@ -130,23 +130,40 @@ def notion_to_markdown(blocks, slug):
                     alt_text = caption if caption else 'Image'
                     
                     # Markdown image format with /iwonder/ prefix for correct rendering
-                    markdown.append(f'![{alt_text}](/iwonder/{hugo_image_path})')
+                    markdown.append(f'<img src="/iwonder/{hugo_image_path}" alt="{alt_text}">')
                     image_counter += 1
                 except Exception as e:
                     print(f"Failed to download image: {e}")
-                    markdown.append(f'![Image]({url})')
+                    markdown.append(f'<img src="{url}" alt="Image">')
         # Divider
         elif block_type == 'divider':
             markdown.append('---')
             
     # Join the blocks: list items with single newline, other blocks with double newline
     result = []
+    in_gallery = False
+    
     for i, block in enumerate(markdown):
+        is_img = block.startswith('<img')
+        next_is_img = (i < len(markdown) - 1) and markdown[i+1].startswith('<img')
+        
+        if is_img and next_is_img and not in_gallery:
+            result.append('<div class="image-gallery">\n')
+            in_gallery = True
+            
         result.append(block)
+        
+        if is_img and not next_is_img and in_gallery:
+            result.append('\n</div>')
+            in_gallery = False
+            
         if i < len(markdown) - 1:
             is_list = block.startswith('- ') or re.match(r'^\d+\. ', block)
             next_is_list = markdown[i+1].startswith('- ') or re.match(r'^\d+\. ', markdown[i+1])
-            if is_list and next_is_list:
+            
+            if in_gallery:
+                result.append('\n')
+            elif is_list and next_is_list:
                 result.append('\n')
             else:
                 result.append('\n\n')

@@ -48,11 +48,10 @@ but it may also kill the cat!
 <hr>
 
 ### Images
-
-
-![Image](/iwonder/images/schrödinger's-cat/image_2.png)
-
-![Image](/iwonder/images/schrödinger's-cat/image_3.jpg)
+<div class="image-gallery">
+<img src="/iwonder/images/schrödinger's-cat/image_2.png" alt="Image">
+<img src="/iwonder/images/schrödinger's-cat/image_3.jpg" alt="Image">
+</div>
 
 <br>
 <!--References-->

@@ -43,9 +43,10 @@ When sunlight enters Earth’s atmosphere, shorter wavelengths like blue and vio
 
 ### Images
 
-![Image](/iwonder/images/blue-sky/image_2.png)
-
-![Image](/iwonder/images/blue-sky/image_3.png)
+<div class="image-gallery">
+<img src="/iwonder/images/blue-sky/image_2.png" alt="Image">
+<img src="/iwonder/images/blue-sky/image_3.png" alt="Image">
+</div>
 
 <br>
 <!--References-->
