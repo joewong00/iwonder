@@ -27,6 +27,71 @@
           {{ .Content }}
         </div>
       
+        {{ if .Params.series }}
+          {{ $series := .Params.series }}
+          {{ $posts := where .Site.RegularPages ".Params.series" $series }}
+          {{ $sortedPosts := sort $posts ".Params.series_order" "asc" }}
+          
+          {{ $prevPost := "" }}
+          {{ $nextPost := "" }}
+          {{ $currentPost := . }}
+          {{ $currentIndex := -1 }}
+          
+          {{ range $index, $post := $sortedPosts }}
+            {{ if eq $post.Permalink $currentPost.Permalink }}
+              {{ $currentIndex = $index }}
+            {{ end }}
+          {{ end }}
+          
+          {{ if ne $currentIndex -1 }}
+            {{ if gt $currentIndex 0 }}
+              {{ $prevPost = index $sortedPosts (sub $currentIndex 1) }}
+            {{ end }}
+            {{ if lt $currentIndex (sub (len $sortedPosts) 1) }}
+              {{ $nextPost = index $sortedPosts (add $currentIndex 1) }}
+            {{ end }}
+          {{ end }}
+
+          {{ if or $prevPost $nextPost }}
+            <div class="series-nav-card my-5 p-4 rounded-3">
+              <div class="series-header mb-3">
+                <span class="series-badge">SERIES</span>
+                <h4 class="series-title mb-0">Part of the <span class="series-name">{{ $series }}</span> Series</h4>
+              </div>
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                  {{ with $prevPost }}
+                    <a href="{{ .RelPermalink }}" class="series-nav-link prev-link h-100 d-block p-3 rounded-2 text-decoration-none">
+                      <div class="nav-direction">&larr; PREVIOUS PART</div>
+                      <div class="nav-title text-truncate">{{ .Title }}</div>
+                    </a>
+                  {{ else }}
+                    <div class="series-nav-link prev-link disabled h-100 d-block p-3 rounded-2">
+                      <div class="nav-direction">PREVIOUS PART</div>
+                      <div class="nav-title text-muted text-truncate">First part of the series</div>
+                    </div>
+                  {{ end }}
+                </div>
+                
+                <div class="col-md-6">
+                  {{ with $nextPost }}
+                    <a href="{{ .RelPermalink }}" class="series-nav-link next-link h-100 d-block p-3 rounded-2 text-decoration-none">
+                      <div class="nav-direction text-end">NEXT PART &rarr;</div>
+                      <div class="nav-title text-end text-truncate">{{ .Title }}</div>
+                    </a>
+                  {{ else }}
+                    <div class="series-nav-link next-link disabled h-100 d-block p-3 rounded-2">
+                      <div class="nav-direction text-end">NEXT PART</div>
+                      <div class="nav-title text-end text-muted text-truncate">Latest part of the series</div>
+                    </div>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+
         <a class="u-url" href="{{ .RelPermalink }}" hidden></a>
       </article>
 

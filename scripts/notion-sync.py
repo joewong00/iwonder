@@ -237,6 +237,28 @@ def extract_properties(page):
         author = author_prop['people'][0]['name']
     if not author:
         author = ""
+
+    # Series
+    series_prop = props.get('Series')
+    series = ''
+    if series_prop:
+        if series_prop.get('select'):
+            series = series_prop['select']['name']
+        elif series_prop.get('rich_text') and series_prop['rich_text']:
+            series = series_prop['rich_text'][0]['plain_text']
+
+    # Series Order (Part / Episode / Weight)
+    series_order_prop = props.get('Series Order') or props.get('Part') or props.get('Episode')
+    series_order = None
+    if series_order_prop:
+        if series_order_prop.get('number') is not None:
+            series_order = series_order_prop['number']
+        elif series_order_prop.get('rich_text') and series_order_prop['rich_text']:
+            try:
+                series_order = int(series_order_prop['rich_text'][0]['plain_text'])
+            except ValueError:
+                pass
+
     return {
         'title': title,
         'date': date,
@@ -244,7 +266,9 @@ def extract_properties(page):
         'description': description,
         'tags': tags,
         'categories': categories,
-        'author': author
+        'author': author,
+        'series': series,
+        'series_order': series_order
     }
 
 def create_hugo_post(page_id, properties, content, first_image_path):
@@ -256,6 +280,13 @@ def create_hugo_post(page_id, properties, content, first_image_path):
     tags_str = ', '.join([f'"{tag}"' for tag in properties['tags']])
     categories_str = ', '.join([f'"{category}"' for category in properties['categories']])
     image_front_matter = f"{first_image_path}" if first_image_path else ""
+    
+    series_fm = ""
+    if properties.get('series'):
+        series_fm += f"series: \"{properties['series']}\"\n"
+    if properties.get('series_order') is not None:
+        series_fm += f"series_order: {properties['series_order']}\n"
+
     front_matter = f"""---
 title: "{properties['title']}"
 date: {properties['date']}
@@ -263,7 +294,7 @@ slug: "{properties['slug']}"
 image: "{image_front_matter}"
 author: "{properties['author']}"
 categories: [{categories_str}]
-draft: false
+{series_fm}draft: false
 ---
 """
     # Write file

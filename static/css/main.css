@@ -446,3 +446,95 @@ blockquote > :last-child {
   border-radius: 4px;
   overflow-x: auto;
 }
+
+/* =========================================
+   Series Navigation Card
+   ========================================= */
+.series-nav-card {
+  background-color: var(--grey-color-light);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .series-nav-card {
+  background-color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.series-badge {
+  background-color: var(--brand-color);
+  color: #fff !important;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.series-title {
+  font-family: var(--heading-font-family);
+  color: var(--text-color);
+  font-size: 1.35rem;
+}
+
+.series-name {
+  color: var(--brand-color);
+  font-weight: 600;
+}
+
+.series-nav-link {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.series-nav-link:hover:not(.disabled) {
+  border-color: var(--brand-color) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.series-nav-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+[data-bs-theme="dark"] .series-nav-link.disabled {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.nav-direction {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--grey-color);
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.nav-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.series-nav-link:hover:not(.disabled) .nav-title {
+  color: var(--brand-color);
+}
+
+.series-nav-link.disabled .nav-title {
+  color: var(--grey-color) !important;
+}
+
+@media (max-width: 768px) {
+  .series-nav-card {
+    padding: 1.25rem !important;
+  }
+}
+

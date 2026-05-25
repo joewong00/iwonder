@@ -9,7 +9,7 @@ draft: false
 ---
 > What doesn’t kill you makes you stronger
 
-Have you ever wondered you have to finish every single pill in an antibiotic course, even if you feel better halfway though? Stopping early might feel harmless, but it contributes to the catastrophic emergence of “superbugs”. 
+Have you ever wondered why you have to finish every single pill in an antibiotic course, even if you feel better halfway through? Stopping early might feel harmless, but it contributes to the catastrophic emergence of “superbugs”. 
 
 <!--more-->
 
