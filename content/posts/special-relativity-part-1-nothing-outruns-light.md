@@ -1,6 +1,6 @@
 ---
 title: "Special Relativity Part 1: Nothing Outruns Light"
-date: 2020-09-29
+date: 2020-12-29
 slug: "special-relativity-part-1-nothing-outruns-light"
 image: "images/special-relativity-part-1-nothing-outruns-light/image_1.jpg"
 author: "Joe Wong"
@@ -9,6 +9,7 @@ series: "Special Relativity"
 series_order: 1
 draft: false
 ---
+
 > The universe’s speed limit
 
 Have you ever wondered what inspired Albert Einstein to develop one of the most revolutionary theories in physics? In this series, we will explore the foundations of **Special Relativity** — and everything begins with one fundamental thing: light.
