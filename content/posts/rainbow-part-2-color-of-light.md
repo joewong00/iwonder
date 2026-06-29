@@ -9,7 +9,7 @@ series: "Rainbow"
 series_order: 2
 draft: false
 ---
-> RPYGBIV
+> ROYGBIV
 
 Have you ever wondered what the true colours of a rainbow are? Most of us learn that a rainbow consists of seven colours: red, orange, yellow, green, blue, indigo, and violet — or **ROYGBIV** for short. But if you look closely at a real spectrum, something seems odd..
 
