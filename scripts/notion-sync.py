@@ -13,6 +13,10 @@ from pathlib import Path
 NOTION_TOKEN = os.environ.get('NOTION_TOKEN')
 DATABASE_ID = os.environ.get('NOTION_DATABASE_ID')
 OUTPUT_DIR = '../content/posts'
+# Global map to store Notion Page ID -> Hugo Slug for link resolution
+PAGE_ID_TO_SLUG = {}
+# Global set of slugs being synced in the current run
+SYNCED_SLUGS = set()
 # Notion API setup
 NOTION_API = 'https://api.notion.com/v1'
 HEADERS = {
@@ -170,6 +174,74 @@ def notion_to_markdown(blocks, slug):
                 
     return ''.join(result), first_image_path
 
+def format_uuid_with_dashes(uuid_str):
+    """Formats a 32-character UUID string with standard dashes"""
+    if '-' in uuid_str:
+        return uuid_str
+    if len(uuid_str) == 32:
+        return f"{uuid_str[:8]}-{uuid_str[8:12]}-{uuid_str[12:16]}-{uuid_str[16:20]}-{uuid_str[20:]}"
+    return uuid_str
+
+def retrieve_notion_page_slug(page_id):
+    """Retrieve the slug of a Notion page directly using the page ID via Notion API"""
+    try:
+        formatted_id = format_uuid_with_dashes(page_id)
+        url = f'{NOTION_API}/pages/{formatted_id}'
+        response = requests.get(url, headers=HEADERS)
+        if response.status_code == 200:
+            page_data = response.json()
+            props = page_data.get('properties', {})
+            slug_prop = props.get('Slug')
+            slug = ''
+            if slug_prop and slug_prop.get('rich_text'):
+                slug = slug_prop['rich_text'][0]['plain_text']
+            if not slug:
+                # Fallback to Name/Title property
+                title_prop = props.get('Name') or props.get('Title')
+                title = ''
+                if title_prop and title_prop.get('title'):
+                    title = title_prop['title'][0]['plain_text']
+                if title:
+                    slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+            return slug
+    except Exception as e:
+        print(f"Warning: Error retrieving Notion page properties for page {page_id}: {e}")
+    return None
+
+def is_slug_available(slug):
+    """Checks if a slug corresponds to a post that exists on disk or is being synced"""
+    if slug in SYNCED_SLUGS:
+        return True
+    filepath = Path(OUTPUT_DIR) / f"{slug}.md"
+    return filepath.exists()
+
+def resolve_notion_id_to_slug(notion_id):
+    """Resolves a Notion page ID to a Hugo slug, querying the API if needed"""
+    global PAGE_ID_TO_SLUG
+    if notion_id in PAGE_ID_TO_SLUG:
+        return PAGE_ID_TO_SLUG[notion_id]
+    
+    # Try fetching it directly from Notion API
+    slug = retrieve_notion_page_slug(notion_id)
+    if slug:
+        PAGE_ID_TO_SLUG[notion_id] = slug
+        return slug
+    return None
+
+def extract_notion_id(url):
+    """Extracts a 32-digit Notion Page ID from a relative or absolute URL"""
+    if not url:
+        return None
+    # Match standard UUID with dashes or a 32-character hex string
+    match = re.search(r'([a-f0-9]{8}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{4}-?[a-f0-9]{12})', url.lower())
+    if match:
+        return match.group(1).replace('-', '')
+    # Match any 32-character hex sequence
+    match_hex = re.search(r'([a-f0-9]{32})', url.lower())
+    if match_hex:
+        return match_hex.group(1)
+    return None
+
 def rich_text_to_markdown(rich_text):
     """Convert Notion rich text to markdown formatting"""
     if not rich_text:
@@ -189,7 +261,13 @@ def rich_text_to_markdown(rich_text):
             text = f'~~{text}~~'
         # Handle links
         if text_obj.get('href'):
-            text = f'[{text}]({text_obj["href"]})'
+            href = text_obj['href']
+            notion_id = extract_notion_id(href)
+            if notion_id:
+                slug = resolve_notion_id_to_slug(notion_id)
+                if slug:
+                    href = f"../{slug}/"
+            text = f'[{text}]({href})'
         result.append(text)
     return ''.join(result)
 
@@ -315,6 +393,20 @@ def sync():
     except Exception as e:
         print(f'❌ Error querying database: {e}')
         return
+
+    # Populate page ID to slug mapping
+    global PAGE_ID_TO_SLUG, SYNCED_SLUGS
+    PAGE_ID_TO_SLUG = {}
+    SYNCED_SLUGS = set()
+    for page in pages:
+        try:
+            properties = extract_properties(page)
+            norm_id = page['id'].replace('-', '')
+            PAGE_ID_TO_SLUG[norm_id] = properties['slug']
+            SYNCED_SLUGS.add(properties['slug'])
+        except Exception as e:
+            print(f'Warning: Could not extract properties for page ID {page.get("id")}: {e}')
+
     synced = 0
     errors = 0
     for page in pages:

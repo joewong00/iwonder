@@ -5,8 +5,10 @@
 
 /* --- Variables (CSS custom properties) --- */
 :root {
-  --base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --heading-font-family: 'Playfair Display', Georgia, serif;
+  --base-font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --heading-font-family: "Playfair Display", Georgia, serif;
   --base-font-size: 16px;
   --base-font-weight: 400;
   --base-line-height: 1.6;
@@ -18,7 +20,7 @@
   --grey-color-light: #f8f9fa;
   --grey-color-dark: #343a40;
   --card-bg: #ffffff;
-  --card-border: rgba(0,0,0,0.05);
+  --card-border: rgba(0, 0, 0, 0.05);
   --accent-bold: #e65100;
   --accent-italic: #6a1b9a;
   --blockquote: #815c85;
@@ -33,7 +35,7 @@
   --grey-color-light: #212529;
   --grey-color-dark: #f8f9fa;
   --card-bg: #1e1e1e;
-  --card-border: rgba(255,255,255,0.05);
+  --card-border: rgba(255, 255, 255, 0.05);
   --accent-bold: #ffb74d;
   --accent-italic: #ce93d8;
   --blockquote: #af9aa5;
@@ -47,7 +49,13 @@ body {
   line-height: var(--base-line-height);
 }
 
-h1, h2, h3, h4, h5, h6, .navbar-brand {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
   font-family: var(--heading-font-family) !important;
 }
 
@@ -55,8 +63,10 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
    Links
    ========================================= */
 #overrides a {
-  color: var(--text-color);
-  text-decoration: none;
+  color: var(--grey-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
 #overrides a .username {
@@ -68,7 +78,10 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 #overrides a:visited {
-  color: var(--text-color);
+  color: var(--grey-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
 #overrides a:hover {
@@ -83,7 +96,8 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   text-decoration: none;
 }
 
-.social-media-list, .contact-list {
+.social-media-list,
+.contact-list {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
@@ -103,28 +117,30 @@ blockquote > :last-child {
   margin-bottom: 0;
 }
 
-.post .content strong, .post .content b {
+.post .content strong,
+.post .content b {
   color: var(--accent-bold);
   font-weight: 700;
 }
 
-.post .content em, .post .content i {
+.post .content em,
+.post .content i {
   color: var(--accent-italic);
 }
 
-.post .content a {
-  color: var(--brand-color);
+#overrides .post .content a {
+  color: var(--grey-color);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
-.post .content a:hover {
-  color: var(--accent-bold);
+#overrides .post .content a:hover {
+  color: var(--brand-color);
 }
 
 .post .content code {
-  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
   background-color: var(--card-border);
   color: var(--accent-code);
   padding: 0.2em 0.4em;
@@ -214,7 +230,10 @@ blockquote > :last-child {
 
 .username:hover {
   color: white;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .svg-icon {
@@ -229,7 +248,8 @@ blockquote > :last-child {
 /* =========================================
    Home Page - Cards (Masonry Grid)
    ========================================= */
-.home .card, .page .card {
+.home .card,
+.page .card {
   padding: 0;
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -239,16 +259,18 @@ blockquote > :last-child {
   min-width: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease-in-out;
 }
 
-.home .card:hover, .page .card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.home .card:hover,
+.page .card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
 }
 
-.home .card .timeago, .page .card .timeago {
+.home .card .timeago,
+.page .card .timeago {
   font-family: var(--base-font-family);
   font-size: 13px;
   color: var(--grey-color);
@@ -256,7 +278,8 @@ blockquote > :last-child {
   letter-spacing: 0.5px;
 }
 
-.home .card .card-category, .page .card .card-category {
+.home .card .card-category,
+.page .card .card-category {
   font-family: var(--base-font-family);
   font-size: 13px;
   color: var(--brand-color);
@@ -265,7 +288,8 @@ blockquote > :last-child {
   letter-spacing: 0.5px;
 }
 
-.home .card .card-title, .page .card .card-title {
+.home .card .card-title,
+.page .card .card-title {
   font-family: var(--heading-font-family);
   font-weight: 700;
   font-size: 1.5rem;
@@ -274,24 +298,28 @@ blockquote > :last-child {
   line-height: 1.3;
 }
 
-.home .card-header, .page .card-header {
+.home .card-header,
+.page .card-header {
   background-color: transparent;
   border-bottom: none;
   margin-bottom: 0;
   padding: 1.5rem 1.5rem 0.5rem 1.5rem;
 }
 
-.home .card-img, .page .card-img {
+.home .card-img,
+.page .card-img {
   width: 100%;
   height: auto;
   border-radius: 0;
 }
 
-.home .card-body, .page .card-body {
+.home .card-body,
+.page .card-body {
   padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-.home .card-text, .page .card-text {
+.home .card-text,
+.page .card-text {
   color: var(--grey-color);
   font-size: 0.95rem;
 }
@@ -316,7 +344,7 @@ blockquote > :last-child {
 
 .post .card .card-meta {
   font-family: var(--base-font-family);
-  font-size: .95em;
+  font-size: 0.95em;
   color: var(--grey-color);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -382,7 +410,9 @@ blockquote > :last-child {
   }
 }
 
-.navbar-brand, .nav-link, .hlink {
+.navbar-brand,
+.nav-link,
+.hlink {
   color: var(--text-color) !important;
 }
 
@@ -490,12 +520,12 @@ blockquote > :last-child {
   border: 1px solid var(--card-border);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .series-nav-link:hover:not(.disabled) {
   border-color: var(--brand-color) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transform: translateY(-2px);
   text-decoration: none !important;
 }
@@ -537,4 +567,3 @@ blockquote > :last-child {
     padding: 1.25rem !important;
   }
 }
-

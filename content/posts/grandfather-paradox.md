@@ -2,22 +2,34 @@
 title: "Grandfather Paradox"
 date: 2021-01-16
 slug: "grandfather-paradox"
-image: "images/grandfather-paradox/timeloop.jpeg"
-categories: ["General"]
+image: "images/grandfather-paradox/image_1.png"
+author: "Joe Wong"
+categories: ["Physics"]
 draft: false
 ---
+> Let’s travel back in time
 
-> Move back in time..?
-
-Have you ever wondered how can we achieve time travel to the past? In the light series part 2 we talked about, which sort of let you move forward in time when you are moving close to light speed. But what about time travel to the past? One of the problems that will arise with travelling back in time, is the famous **grandfather paradox.**
+Have you ever wondered whether we could travel back in time? In the [Special Relativity](../special-relativity-part-1-nothing-outruns-light/) series, we learned that travelling close to the speed of light can, in a sense, allow you to travel into the future through time dilation. But what about travelling into the past?
 
 <!--more-->
 
-So imagine you invented a time travel machine that helps you **move back in time**. What if you move to the time when your grandfather was still a child and you **killed** him? Then your mother or father wouldn't have been born, and you wouldn't have been born. So you wouldn't have been able to go back in time to kill your grandfather in the first place. This [closed loop](#keywords) seems to suggest that time travelling into the past is **impossible** because there's a possibility that both different events are happening in parallel.
+One of the biggest challenges with backward time travel is the famous **grandfather paradox**.
 
-One simple explanation is the principle of **Novikov self- consistency**. This theory contends that the probability of an event that can cause a paradox or any change to the past is **zero**. If you are born, then the event of you going back in time to kill your grandfather will never exist. If you did go back in time, you won't be able to kill you grandfather or do anything that can alter the past.
+Imagine you invent a time machine and travel back to a time when your grandfather was still a child. What if you killed him before he had children? Then one of your parents would never have been born, which means you would never have existed. But if you were never born, who went back in time to kill your grandfather?
 
-So what's happened happened? That's boring. There's another possible theory: [parallel universe](#keywords). When you travel back in time, you're travelling to the past of a parallel universe, and you can kill your grandfather and you can exist at the same time. The past that you altered is the other parallel universe, therefore your grandfather is pretty much still alive in your universe, but not in the other.
+This logical contradiction suggests that travelling into the past may not be as simple as science fiction often portrays.
+
+One proposed solution is the **Novikov self-consistency principle**. It states that any event which would create a paradox has a probability of zero. In other words, if you already exist, then history must remain self-consistent. You may travel to the past, but you would never be able to kill your grandfather—or perform any action that would alter events in a way that creates a contradiction. Somehow, circumstances would always prevent the paradox from happening.
+
+So... what happened, happened? That sounds a little boring.
+
+Another fascinating idea comes from the **many-worlds interpretation**, often associated with the concept of **parallel universes**. Under this idea, travelling back in time would not send you into your own past, but into the past of a different branch of reality. You could kill your grandfather in that universe without affecting your own history, because the universe you left remains unchanged. Your grandfather would still be alive in your original timeline, while a different timeline would unfold from the moment you arrived.
+
+So which explanation is correct? At the moment, no one knows. Both ideas remain theoretical, and we have no experimental evidence that travelling to the past is possible. But if it ever becomes reality, the universe may have already found a way to avoid its own paradoxes.
+
+```md
+Perhaps history cannot be changed—only revisited.
+```
 
 <br>
 <!--Keywords-->
@@ -25,9 +37,8 @@ So what's happened happened? That's boring. There's another possible theory: [pa
 
 ### Keywords
 
-- **Closed Loop**: An automatic control system in which an operation, process, or mechanism is regulated by **feedback**.
-
-- **Parallel Universe**: A parallel universe, also known as a parallel dimension, alternate universe, or alternate reality, is **a hypothetical self-contained plane of existence, co-existing with one's own**. The sum of all potential parallel universes that constitute reality is often called a "multiverse".
+- **Closed Loop**: An automatic control system in which an operation, process, or mechanism is regulated by **feedback**.
+- **Parallel Universe**: A parallel universe, also known as a parallel dimension, alternate universe, or alternate reality, is **a hypothetical self-contained plane of existence, co-existing with one’s own**. The sum of all potential parallel universes that constitute reality is often called a “multiverse”.
 
 <br>
 <!--Images-->
@@ -35,13 +46,9 @@ So what's happened happened? That's boring. There's another possible theory: [pa
 
 ### Images
 
-<div class="row">
-	<div class="column">
-		<img src="/iwonder/images/grandfather-paradox/paradox.png" alt="">
-	</div>
-    <div class="column">
-		<img src="/iwonder/images/grandfather-paradox/universe.png" alt="">
-	</div>
+<div class="image-gallery">
+<img src="/iwonder/images/grandfather-paradox/image_2.png" alt="Image">
+<img src="/iwonder/images/grandfather-paradox/image_3.png" alt="Image">
 </div>
 
 <br>
@@ -50,10 +57,7 @@ So what's happened happened? That's boring. There's another possible theory: [pa
 
 ### References
 
-[https://en.wikipedia.org/wiki/Parallel_universes_in_fiction](https://en.wikipedia.org/wiki/Parallel_universes_in_fiction)
-\
-[https://www.space.com/grandfather-paradox.html](https://www.space.com/grandfather-paradox.html)
-\
-[https://www.youtube.com/watch?v=XayNKY944lY](https://www.youtube.com/watch?v=XayNKY944lY)
-\
-[https://en.wikipedia.org/wiki/Novikov_self-consistency_principle](https://en.wikipedia.org/wiki/Novikov_self-consistency_principle)
+- https://en.wikipedia.org/wiki/Parallel_universes_in_fiction
+- https://www.space.com/grandfather-paradox.html
+- https://www.youtube.com/watch?v=XayNKY944lY
+- https://en.wikipedia.org/wiki/Novikov_self-consistency_principle
