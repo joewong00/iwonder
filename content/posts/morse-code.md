@@ -7,7 +7,8 @@ author: "Joe Wong"
 categories: ["General Science"]
 draft: false
 ---
-> SOS: The Message That Means Nothing
+
+> SOS: The message that means nothing
 
 Have you ever wondered what you can do to call for help when you are stranded on a deserted island with no phone or internet? You have probably heard of SOS, the international distress signal used during emergencies. But what does it actually mean?
 
