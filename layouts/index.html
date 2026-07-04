@@ -6,11 +6,32 @@
 
     {{ $pages := where .Site.RegularPages "Section" "posts" }}
     {{ if $pages }}
+      
+      <!-- Search Bar UI -->
+      <div class="search-wrapper">
+        <div class="search-input-group">
+          <i class="bi bi-search search-icon-left"></i>
+          <input type="text" id="blog-search-input" class="search-input" placeholder="Search articles by title, content, or category..." aria-label="Search articles">
+          <button id="blog-search-clear" class="search-clear-btn" aria-label="Clear search">
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Search Results Feedback -->
+      <div id="search-results-feedback" class="search-results-feedback" style="opacity: 0;"></div>
+
+      <!-- No Results Found State -->
+      <div id="no-results-container" class="no-results-card d-none">
+        <i class="bi bi-search-heart no-results-icon"></i>
+        <h3>No articles found</h3>
+        <p class="text-muted">We couldn't find any articles matching your search query. Try different keywords or check for spelling errors.</p>
+      </div>
 
       <div class="row" data-masonry='{"percentPosition": true }'>
 
         {{ range $pages.ByDate.Reverse }}
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 blog-card-item">
             <article class="card mb-4">
               <header class="card-header">
                 <div class="card-meta">
@@ -34,6 +55,14 @@
                 <p class="card-text">{{ .Summary }}</p>
               </div>
             </article>
+            
+            <!-- Hidden search keywords database -->
+            <div class="search-metadata d-none">
+              <span class="search-title">{{ .Title }}</span>
+              <span class="search-summary">{{ .Summary }}</span>
+              <span class="search-categories">{{ with .Params.categories }}{{ delimit . " " }}{{ end }}</span>
+              <span class="search-body">{{ .Plain }}</span>
+            </div>
           </div>
         {{ end }}
       </div>
@@ -42,4 +71,102 @@
 
   </div>
 </div>
+
+<!-- Search Interaction Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('blog-search-input');
+    const clearButton = document.getElementById('blog-search-clear');
+    const grid = document.querySelector('[data-masonry]');
+    const resultsCount = document.getElementById('search-results-feedback');
+    const noResults = document.getElementById('no-results-container');
+    
+    if (!searchInput || !grid) return;
+
+    // Store all initial card elements in memory
+    const allCards = Array.from(grid.children);
+
+    // Helper to escape regex special characters
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().replace(/\s+/g, ' ');
+      
+      // Update clear button visibility
+      if (query.length > 0) {
+        clearButton.style.opacity = '1';
+        clearButton.style.pointerEvents = 'auto';
+      } else {
+        clearButton.style.opacity = '0';
+        clearButton.style.pointerEvents = 'none';
+      }
+
+      // Filter card elements
+      const filteredCards = allCards.filter(card => {
+        if (!query) return true;
+
+        const title = card.querySelector('.search-title')?.textContent || '';
+        const summary = card.querySelector('.search-summary')?.textContent || '';
+        const categories = card.querySelector('.search-categories')?.textContent || '';
+        const body = card.querySelector('.search-body')?.textContent || '';
+
+        // Create whole word pattern match using regex word boundaries (\b)
+        const escapedQuery = escapeRegExp(query);
+        const regex = new RegExp('\\b' + escapedQuery + '\\b', 'i');
+
+        return regex.test(title) || 
+               regex.test(summary) || 
+               regex.test(categories) || 
+               regex.test(body);
+      });
+
+      // Clear the grid DOM completely
+      grid.innerHTML = '';
+
+      if (filteredCards.length === 0) {
+        grid.style.display = 'none';
+        if (noResults) {
+          noResults.classList.remove('d-none');
+        }
+      } else {
+        grid.style.display = '';
+        if (noResults) {
+          noResults.classList.add('d-none');
+        }
+        // Append only matched cards
+        filteredCards.forEach(card => {
+          grid.appendChild(card);
+        });
+      }
+
+      // Update search results count text
+      if (!query) {
+        resultsCount.textContent = '';
+        resultsCount.style.opacity = '0';
+      } else {
+        resultsCount.style.opacity = '1';
+        resultsCount.textContent = `Found ${filteredCards.length} ${filteredCards.length === 1 ? 'article' : 'articles'} matching "${searchInput.value}"`;
+      }
+
+      // Re-trigger Masonry layout
+      if (typeof Masonry !== 'undefined') {
+        const msnry = Masonry.data(grid);
+        if (msnry) {
+          msnry.reloadItems();
+          msnry.layout();
+        }
+      }
+    });
+
+    // Clear search input on clear button click
+    clearButton.addEventListener('click', () => {
+      searchInput.value = '';
+      searchInput.dispatchEvent(new Event('input'));
+      searchInput.focus();
+    });
+  });
+</script>
 {{ end }}
+
