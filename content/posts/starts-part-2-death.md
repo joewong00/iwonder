@@ -1,5 +1,5 @@
 ---
-title: "Starts Part 2: Death"
+title: "Stars Part 2: Death"
 date: 2021-01-21
 slug: "starts-part-2-death"
 image: "images/starts-part-2-death/image_1.jpg"
@@ -9,6 +9,7 @@ series: "Stars"
 series_order: 2
 draft: false
 ---
+
 > The death that creates life
 
 When you look up at the night sky and admire the beautiful stars, have you ever wondered whether they have a lifespan? How long will they continue to shine? And perhaps more intriguingly, what happens when they **die**?
