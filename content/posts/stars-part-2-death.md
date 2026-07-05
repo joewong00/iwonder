@@ -1,8 +1,8 @@
 ---
 title: "Stars Part 2: Death"
 date: 2021-01-21
-slug: "starts-part-2-death"
-image: "images/starts-part-2-death/image_1.jpg"
+slug: "stars-part-2-death"
+image: "images/stars-part-2-death/image_1.jpg"
 author: "Joe Wong"
 categories: ["Physics"]
 series: "Stars"
